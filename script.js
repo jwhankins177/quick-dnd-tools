@@ -18,7 +18,7 @@ function setupEventListeners() {
     });
 
     // Character management
-    document.getElementById('add-character-btn').addEventListener('click', openCharacterModal);
+    document.getElementById('add-character-btn').addEventListener('click', () => openCharacterModal());
     document.getElementById('character-form').addEventListener('submit', saveCharacter);
     document.getElementById('cancel-btn').addEventListener('click', closeCharacterModal);
     document.querySelector('.close').addEventListener('click', closeCharacterModal);
