@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D Quick Tools</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>D&D Quick Tools</h1>
+            <p class="tagline">Quick tools and character tracking for your party</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-button active" data-tab="characters">Characters</button>
+            <button class="tab-button" data-tab="dice">Dice Roller</button>
+            <button class="tab-button" data-tab="initiative">Initiative Tracker</button>
+        </nav>
+
+        <main>
+            <!-- Characters Tab -->
+            <div id="characters-tab" class="tab-content active">
+                <div class="section-header">
+                    <h2>Party Characters</h2>
+                    <button id="add-character-btn" class="btn btn-primary">+ Add Character</button>
+                </div>
+                <div id="characters-list" class="characters-list"></div>
+            </div>
+
+            <!-- Dice Roller Tab -->
+            <div id="dice-tab" class="tab-content">
+                <h2>Dice Roller</h2>
+                <div class="dice-buttons">
+                    <button class="dice-btn" data-dice="d4">d4</button>
+                    <button class="dice-btn" data-dice="d6">d6</button>
+                    <button class="dice-btn" data-dice="d8">d8</button>
+                    <button class="dice-btn" data-dice="d10">d10</button>
+                    <button class="dice-btn" data-dice="d12">d12</button>
+                    <button class="dice-btn" data-dice="d20">d20</button>
+                    <button class="dice-btn" data-dice="d100">d100</button>
+                </div>
+                <div class="custom-roll">
+                    <input type="text" id="custom-dice" placeholder="e.g., 2d6+3" />
+                    <button id="custom-roll-btn" class="btn">Roll</button>
+                </div>
+                <div id="dice-results" class="dice-results"></div>
+            </div>
+
+            <!-- Initiative Tracker Tab -->
+            <div id="initiative-tab" class="tab-content">
+                <h2>Initiative Tracker</h2>
+                <div class="initiative-add">
+                    <input type="text" id="init-name" placeholder="Name" />
+                    <input type="number" id="init-value" placeholder="Initiative" />
+                    <button id="add-initiative-btn" class="btn">Add</button>
+                </div>
+                <div id="initiative-list" class="initiative-list"></div>
+                <button id="clear-initiative-btn" class="btn btn-secondary">Clear All</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Character Modal -->
+    <div id="character-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title">Add Character</h2>
+            <form id="character-form">
+                <div class="form-group">
+                    <label for="char-name">Name:</label>
+                    <input type="text" id="char-name" required />
+                </div>
+                <div class="form-group">
+                    <label for="char-class">Class:</label>
+                    <input type="text" id="char-class" required />
+                </div>
+                <div class="form-group">
+                    <label for="char-level">Level:</label>
+                    <input type="number" id="char-level" min="1" max="20" value="1" required />
+                </div>
+                <div class="form-group">
+                    <label for="char-max-hp">Max HP:</label>
+                    <input type="number" id="char-max-hp" min="1" required />
+                </div>
+                <div class="form-group">
+                    <label for="char-current-hp">Current HP:</label>
+                    <input type="number" id="char-current-hp" min="0" required />
+                </div>
+                <div class="form-group">
+                    <label for="char-ac">Armor Class (AC):</label>
+                    <input type="number" id="char-ac" min="1" required />
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" id="cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
